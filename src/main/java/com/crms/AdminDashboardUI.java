@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class AdminDashboardUI extends JFrame implements ActionListener {
-    private JButton manageUsersBtn, viewLogsBtn, backupBtn, restoreBtn, settingsBtn, logoutBtn;
+    private JButton manageUsersBtn, viewLogsBtn, logoutBtn;
 
     public AdminDashboardUI() {
         setTitle("Admin Dashboard - Crime Record Management System");
@@ -27,30 +27,21 @@ class AdminDashboardUI extends JFrame implements ActionListener {
         contentPanel.add(header, BorderLayout.NORTH);
 
         // Button Panel
-        JPanel buttonPanel = new JPanel(new GridLayout(2, 3, 20, 20));
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 3, 20, 20));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(40, 80, 40, 80));
         contentPanel.add(buttonPanel, BorderLayout.CENTER);
 
         manageUsersBtn = createButton("Manage Users");
         viewLogsBtn = createButton("View Logs");
-        backupBtn = createButton("Backup Database");
-        restoreBtn = createButton("Restore Database");
-        settingsBtn = createButton("Settings");
         logoutBtn = createButton("Logout");
 
         buttonPanel.add(manageUsersBtn);
         buttonPanel.add(viewLogsBtn);
-        buttonPanel.add(backupBtn);
-        buttonPanel.add(restoreBtn);
-        buttonPanel.add(settingsBtn);
         buttonPanel.add(logoutBtn);
 
         // Action Listeners
         manageUsersBtn.addActionListener(this);
         viewLogsBtn.addActionListener(this);
-        backupBtn.addActionListener(this);
-        restoreBtn.addActionListener(this);
-        settingsBtn.addActionListener(this);
         logoutBtn.addActionListener(this);
     }
 
@@ -66,16 +57,11 @@ class AdminDashboardUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
-        if (src == manageUsersBtn) {
-            JOptionPane.showMessageDialog(this, "Manage Users window will open here.");
-        } else if (src == viewLogsBtn) {
-            JOptionPane.showMessageDialog(this, "Viewing Logs...");
-        } else if (src == backupBtn) {
-            JOptionPane.showMessageDialog(this, "Database Backup completed.");
-        } else if (src == restoreBtn) {
-            JOptionPane.showMessageDialog(this, "Database Restored.");
-        } else if (src == settingsBtn) {
-            JOptionPane.showMessageDialog(this, "Settings Panel opened.");
+            if (src == manageUsersBtn) {
+                UserManagementUI userManager = new UserManagementUI();
+                userManager.setVisible(true);
+            } else if (src == viewLogsBtn) {
+                JOptionPane.showMessageDialog(this, "Viewing Logs...");
         } else if (src == logoutBtn) {
             int choice = JOptionPane.showConfirmDialog(this, "Do you want to logout?", "Confirm Logout",
                     JOptionPane.YES_NO_OPTION);
