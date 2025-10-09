@@ -5,11 +5,11 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.*;
 
-public class ViewLogsUI extends JFrame {
+public class UserLogViewerUI extends JFrame {
 
     private static final String[] COLUMN_NAMES = {"Log ID", "Timestamp", "User ID", "Action/Message"};
 
-    public ViewLogsUI() {
+    public UserLogViewerUI() {
         setTitle("Admin - System Activity Logs");
         setSize(1000, 600);
         setLocationRelativeTo(null);
@@ -18,12 +18,10 @@ public class ViewLogsUI extends JFrame {
 
         DefaultTableModel model = new DefaultTableModel(COLUMN_NAMES, 0);
         JTable table = new JTable(model);
-
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-
         add(new JScrollPane(table), BorderLayout.CENTER);
 
-        try (ResultSet rs = LogDatabaseUtil.getAllLogs()) {
+        try (ResultSet rs = UserLogDatabaseUtil.getAllLogs()) {
 
             if (rs == null) {
                 JOptionPane.showMessageDialog(this, "Failed to connect to the database or execute query.", "Database Error", JOptionPane.ERROR_MESSAGE);

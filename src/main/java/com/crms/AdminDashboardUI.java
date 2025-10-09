@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class AdminDashboardUI extends JFrame implements ActionListener {
-    private JButton manageUsersBtn, viewLogsBtn, crimeRecordsBtn, logoutBtn;
+    private JButton manageUsersBtn, viewuserBtn, crimeRecordsBtn, logoutBtn;
 
     public AdminDashboardUI() {
         setTitle("Admin Dashboard - Crime Record Management System");
@@ -32,18 +32,18 @@ class AdminDashboardUI extends JFrame implements ActionListener {
         contentPanel.add(buttonPanel, BorderLayout.CENTER);
 
         manageUsersBtn = createButton("Manage Users");
-        viewLogsBtn = createButton("View Logs");
+        viewuserBtn = createButton("View Users");
         crimeRecordsBtn = createButton("Crime Records");
         logoutBtn = createButton("Logout");
 
         buttonPanel.add(manageUsersBtn);
-        buttonPanel.add(viewLogsBtn);
+        buttonPanel.add(viewuserBtn);
         buttonPanel.add(crimeRecordsBtn);
         buttonPanel.add(logoutBtn);
 
         // Action Listeners
         manageUsersBtn.addActionListener(this);
-        viewLogsBtn.addActionListener(this);
+        viewuserBtn.addActionListener(this);
         crimeRecordsBtn.addActionListener(this);
         logoutBtn.addActionListener(this);
     }
@@ -63,8 +63,8 @@ class AdminDashboardUI extends JFrame implements ActionListener {
             if (src == manageUsersBtn) {
                 UserManagementUI userManager = new UserManagementUI();
                 userManager.setVisible(true);
-            } else if (src == viewLogsBtn) {
-                new ViewLogsUI();
+            } else if (src == viewuserBtn) {
+                new UserLogViewerUI();
             }else if (src == logoutBtn) {
             int choice = JOptionPane.showConfirmDialog(this, "Do you want to logout?", "Confirm Logout",
                     JOptionPane.YES_NO_OPTION);

@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-// Assuming UserDatabaseUtil is in the same package or imported
 
 public class UserManagementUI extends JFrame implements ActionListener {
 
@@ -92,7 +91,6 @@ public class UserManagementUI extends JFrame implements ActionListener {
             return;
         }
 
-        // *** IMPORTANT: In a real application, you must hash the password (e.g., using BCrypt). ***
         String passwordHash = "MOCK_HASH_" + password; // MOCK HASH for example
 
         if (UserDatabaseUtil.addUser(userId, username, role, passwordHash)) {
@@ -124,7 +122,6 @@ public class UserManagementUI extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this, "Database error during search.", "DB Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
-        // Remember: The caller (this method) is responsible for closing the ResultSet
-        // when a method returns an open ResultSet (as per the UserDatabaseUtil design).
+
     }
 }

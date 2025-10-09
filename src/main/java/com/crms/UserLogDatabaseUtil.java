@@ -2,7 +2,7 @@ package com.crms;
 
 import java.sql.*;
 
-public class LogDatabaseUtil {
+public class UserLogDatabaseUtil {
 
     private static final String URL = "jdbc:mysql://localhost:3306/crimeDB";
     private static final String USER = "root";
