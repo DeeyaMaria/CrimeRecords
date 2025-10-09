@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class AdminDashboardUI extends JFrame implements ActionListener {
-    private JButton manageUsersBtn, viewLogsBtn, logoutBtn;
+    private JButton manageUsersBtn, viewLogsBtn, crimeRecordsBtn, logoutBtn;
 
     public AdminDashboardUI() {
         setTitle("Admin Dashboard - Crime Record Management System");
@@ -33,15 +33,18 @@ class AdminDashboardUI extends JFrame implements ActionListener {
 
         manageUsersBtn = createButton("Manage Users");
         viewLogsBtn = createButton("View Logs");
+        crimeRecordsBtn = createButton("Crime Records");
         logoutBtn = createButton("Logout");
 
         buttonPanel.add(manageUsersBtn);
         buttonPanel.add(viewLogsBtn);
+        buttonPanel.add(crimeRecordsBtn);
         buttonPanel.add(logoutBtn);
 
         // Action Listeners
         manageUsersBtn.addActionListener(this);
         viewLogsBtn.addActionListener(this);
+        crimeRecordsBtn.addActionListener(this);
         logoutBtn.addActionListener(this);
     }
 
@@ -69,6 +72,8 @@ class AdminDashboardUI extends JFrame implements ActionListener {
                 new AdminLoginUI().setVisible(true);
                 dispose();
             }
-        }
+        } else if (src == crimeRecordsBtn) {
+                JOptionPane.showMessageDialog(this, "Opening Crime Records Viewer...");
+            }
     }
 }
