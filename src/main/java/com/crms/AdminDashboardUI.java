@@ -61,8 +61,8 @@ class AdminDashboardUI extends JFrame implements ActionListener {
                 UserManagementUI userManager = new UserManagementUI();
                 userManager.setVisible(true);
             } else if (src == viewLogsBtn) {
-                JOptionPane.showMessageDialog(this, "Viewing Logs...");
-        } else if (src == logoutBtn) {
+                new ViewLogsUI();
+            }else if (src == logoutBtn) {
             int choice = JOptionPane.showConfirmDialog(this, "Do you want to logout?", "Confirm Logout",
                     JOptionPane.YES_NO_OPTION);
             if (choice == JOptionPane.YES_OPTION) {
